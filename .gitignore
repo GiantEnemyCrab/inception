@@ -21,3 +21,7 @@ inception/inception-app-webapp/src/main/resources/log4j2-dev.xml
 */.apt_generated_tests/
 dependency-reduced-pom.xml
 inception/node
+
+node
+pom.xml.releaseBackup
+node_modules/

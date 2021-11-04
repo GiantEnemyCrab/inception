@@ -102,55 +102,15 @@
   </dependencies>
   <build>
     <plugins>
-      <plugin>
-        <artifactId>maven-resources-plugin</artifactId>
-        <executions>
-          <execution>
-            <id>stage-ts-build</id>
-            <phase>generate-resources</phase>
-            <goals>
-              <goal>copy-resources</goal>
-            </goals>
-            <configuration>
-              <outputDirectory>target/ts</outputDirectory>
-              <resources>
-                <resource>
-                  <directory>src/main/ts</directory>
-                </resource>
-              </resources>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>build-helper-maven-plugin</artifactId>
-        <executions>
-          <execution>
-            <id>add-compiled-ts-resources</id>
-            <phase>generate-resources</phase>
-            <goals>
-              <goal>add-resource</goal>
-            </goals>
-            <configuration>
-              <resources>
-                <resource>
-                  <directory>target/ts/dist</directory>
-                  <targetPath>js</targetPath>
-                </resource>
-              </resources>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
+
       <plugin>
         <groupId>com.github.eirslett</groupId>
         <artifactId>frontend-maven-plugin</artifactId>
         <configuration>
-          <workingDirectory>target/ts</workingDirectory>
-          <installDirectory>../node</installDirectory>
+          <workingDirectory>src/main/ts</workingDirectory>
+          <installDirectory>${maven.multiModuleProjectDirectory}/node</installDirectory>
           <nodeVersion>v11.15.0</nodeVersion>
-          <npmVersion>6.7.0</npmVersion>
+          <npmVersion>8.1.0</npmVersion>
         </configuration>
         <executions>
           <execution>
